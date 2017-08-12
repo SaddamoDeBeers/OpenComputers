@@ -1,0 +1,73 @@
+
+OSalarm
+
+alarm = component.os_alarm
+
+alarm.setAlarm("klaxon2") Allows you to change the alarm played, 
+the default config is klaxon1 and klaxon2 and the default sound is klaxon1
+
+alarm.setRange(15-150) Sets the range in blocks from the alarm block, allowed range is 15 - 150
+alarm.activate() It.. activates the alarm.
+alarm.listSounds() returns a table of configured alarms.
+alarm.deactivate() It.. deactivates the alarm.
+
+-----------------
+
+RFID Reader Block
+
+rfid = component.os_rfidreader
+rfid.scan(optional int:1-64)
+
+-----------------
+
+Card Writer
+
+writer = component.os_cardwriter
+writer.write(string: Data, string: DisplayName, Optional Boolean:locked)
+writer.write("Test Data", "Display", true)
+
+Events:
+
+event, address = event.pull("cardInsert")
+The cardInsert event is triggered when a rfid or mag card is inserted.
+
+event, address = event.pull("cardRemove")
+
+-----------------
+
+Entity Detector
+
+entity = component.os_entdetector
+entity.scanPlayers(optional int:1-64) Returns a table of detected entities, also queues a signal for each entity found "entityDetect",
+with name, range, x, y, z
+
+entity.scanEntities(optional int:1-64) Returns a table of detected entities, also queues a signal for each entity found "entityDetect",
+with name, range, x, y, z (This omits players, but can include dropped items)
+
+-----------------
+
+Door Controller
+
+doorcontroller = component.os_door
+
+doorcontroller.toggle() Opens or Closes the Door
+doorcontroller.isOpen() Returns True if the door is open, False if it is closed
+
+-----------------
+
+Keypad
+
+keypad = component.os_keypad
+keypad.setEventName("eventName") --Sets the event name returned when you press a button, default is keypad
+keypad.setDisplay("displayText", optional int:textColor) --textColor is a minecraft color code
+
+--Custom button labels and colors
+customButtons = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"} --This is the default order, change any of them to change the button label in that place.
+customButtonColor = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} --This works the same as button labels, but it takes a color code to color the button label in that position.
+keypad.setKey(customButtons, customButtonColor)
+
+-----------------
+
+
+
+
