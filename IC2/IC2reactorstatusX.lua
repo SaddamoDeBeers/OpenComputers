@@ -95,10 +95,9 @@ term.setCursor(1,1)
 centerF(5,  "-----------------------------------------")
 centerF(6,  "-       IC2 Reactor Controller V4       -")
 centerF(7,  "-----------------------------------------")
-centerF(12, "-                                       -")
-centerF(14, "                                        -")   
-centerF(17, "-----------------------------------------")
-
+centerF(12, "-----------------------------------------")
+centerF(13, "-                                       -")   
+centerF(14, "-----------------------------------------")
   
 while true do 
 
@@ -120,6 +119,6 @@ while true do
   centerF(9, string.format("- Reactor maxheat:        %s         -",maxheat())) --added this to get current value if reactor shuts down since script startup
   centerF(10, string.format("- Reactor heat:           %s          -",  getheat())) --added this to get current value if reactor shuts down since script startup
   centerF(11, string.format("- Reactor EU Output:      %s          -",  getEU())) --added this to get current value if reactor shuts down since script startup
-  centerF(40, "Data updates every second: %2d", tickCnt)
-  centerF(41, "Current up time: %2d hours %2d min", hours, mins)
+  centerF(30, "Data updates every second: %2d", tickCnt)
+  centerF(31, "Current up time: %2d hours %2d min", hours, mins)
 end
