@@ -1,0 +1,2 @@
+it works only with 6 chambers reactor, not fluid IC2 reactor
+adapter is under the reactor with inventory controller
