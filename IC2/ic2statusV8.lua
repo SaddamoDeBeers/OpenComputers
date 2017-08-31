@@ -23,6 +23,7 @@ EUOutput=reactor.getReactorEUOutput
 local items={}
 local currentRods={}
 local rodTypes={"gt.reactorUraniumQuad.name", "gt.reactorMOXQuad.name"}
+local rodDepleted={"Quad Fuel Rod (Depleted Uranium)", "Quad Fuel Rod (Depleted MOX)"}
 --tables
 
 --rods
@@ -35,41 +36,57 @@ local rod4 = rodSlot(1, 34)
 --rod functions
 local function draw1()
   if currentRods[1] == rodTypes[1] then
-    return "X"
+    return "U"
   elseif currentRods[1] == rodTypes[2] then
-    return "Y"
+    return "M"
   elseif currentRods[1] == "empty" then
     return "E"
+  elseif currentRods[1] == rodDepleted[1] then
+    return "0"
+  elseif currentRods[1] == rodDepleted[2] then
+    return "0"
   end
   end
   
 local function draw2()
   if currentRods[2] == rodTypes[1] then
-    return "X"
+    return "U"
   elseif currentRods[2] == rodTypes[2] then
-    return "Y"
+    return "M"
   elseif currentRods[2] == "empty" then
     return "E"
+  elseif currentRods[2] == rodDepleted[1] then
+    return "0"
+  elseif currentRods[2] == rodDepleted[2] then
+    return "0"
   end
   end
   
 local function draw3()
   if currentRods[3] == rodTypes[1] then
-    return "X"
+    return "U"
   elseif currentRods[3] == rodTypes[2] then
-    return "Y"
+    return "M"
   elseif currentRods[3] == "empty" then
     return "E"
+  elseif currentRods[3] == rodDepleted[1] then
+    return "0"
+  elseif currentRods[3] == rodDepleted[2] then
+    return "0"
   end
   end
   
 local function draw4()
   if currentRods[4] == rodTypes[1] then
-    return "X"
+    return "U"
   elseif currentRods[4] == rodTypes[2] then
-    return "Y"
+    return "M"
   elseif currentRods[4] == "empty" then
     return "E"
+  elseif currentRods[4] == rodDepleted[1] then
+    return "0"
+  elseif currentRods[4] == rodDepleted[2] then
+    return "0"
   end
   end
 --rod functions
@@ -150,10 +167,10 @@ term.setCursor(1,1)
 centerF(5,  "-----------------------------------------")
 centerF(6,  "-       IC2 Reactor Controller V8       -")
 centerF(7,  "-----------------------------------------")
-centerF(8, string.format("- Reactor is:             %s       -",status())) 
-centerF(9, string.format("- Reactor maxheat:        %s         -",maxheat())) 
-centerF(10, string.format("- Reactor heat:           %s          -",  getheat())) 
-centerF(11, string.format("- Reactor EU Output:      %s          -",  getEU())) 
+centerF(8, string.format("- Reactor is:             %s       -", status())) 
+centerF(9, string.format("- Reactor maxheat:        %s         -", maxheat())) 
+centerF(10, string.format("- Reactor heat:           %s          -", getheat())) 
+centerF(11, string.format("- Reactor EU Output:      %s          -", getEU())) 
 centerF(12, "-----------------------------------------")
 centerF(13, "-                                       -")   
 centerF(14, "-----------------------------------------")
@@ -210,13 +227,13 @@ while true do
     currentRods[4]="empty"
   end
   
-  centerF(20, string.format("--%s---%s--",draw1(),draw2()))
-  centerF(21, string.format("--%s---%s--",draw3(),draw4()))
+  centerF(20, string.format("--%s---%s--", draw1(), draw2()))
+  centerF(21, string.format("--%s---%s--", draw3(), draw4()))
   
-  centerF(8, string.format("- Reactor is:             %s       -",status())) 
-  centerF(9, string.format("- Reactor maxheat:        %s         -",maxheat())) 
-  centerF(10, string.format("- Reactor heat:           %s          -",  getheat())) 
-  centerF(11, string.format("- Reactor EU Output:      %s          -",  getEU())) 
+  centerF(8, string.format("- Reactor is:             %s       -", status())) 
+  centerF(9, string.format("- Reactor maxheat:        %s         -", maxheat())) 
+  centerF(10, string.format("- Reactor heat:           %s          -", getheat())) 
+  centerF(11, string.format("- Reactor EU Output:      %s          -", getEU())) 
   centerF(30, "Data updates every second: %2d", tickCnt)
   centerF(31, "Current up time: %2d hours %2d min", hours, mins)
   
