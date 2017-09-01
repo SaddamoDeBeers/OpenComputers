@@ -163,19 +163,19 @@ gpu.setForeground(0xffffff)
 -----
 term.clear()
 term.setCursor(1,1)
-
-centerF(5,  "-----------------------------------------")
-centerF(6,  "-       IC2 Reactor Controller V8       -")
-centerF(7,  "-----------------------------------------")
-centerF(8, string.format("- Reactor is:             %s       -", status())) 
-centerF(9, string.format("- Reactor maxheat:        %s         -", maxheat())) 
-centerF(10, string.format("- Reactor heat:           %s          -", getheat())) 
-centerF(11, string.format("- Reactor EU Output:      %s          -", getEU())) 
-centerF(12, "-----------------------------------------")
-centerF(13, "-                                       -")   
-centerF(14, "-----------------------------------------")
   
 while true do
+  
+  centerF(5,  "-----------------------------------------")
+  centerF(6,  "-       IC2 Reactor Controller V8       -")
+  centerF(7,  "-----------------------------------------")
+  centerF(8, string.format("- Reactor is:             %s       -", status())) 
+  centerF(9, string.format("- Reactor maxheat:        %s         -", maxheat())) 
+  centerF(10, string.format("- Reactor heat:           %s          -", getheat())) 
+  centerF(11, string.format("- Reactor EU Output:      %s          -", getEU())) 
+  centerF(12, "-----------------------------------------")
+  centerF(13, "-                                       -")   
+  centerF(14, "-----------------------------------------")
 
   centerF(15, "-----------------------------")
   centerF(16, "-     Reactor Fuel Rods     -")
